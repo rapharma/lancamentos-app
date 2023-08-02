@@ -1,0 +1,21 @@
+<div class="container">
+  
+    <h3>{{transactions.length}} Transações</h3>
+    <table class="table" aria-describedby="transactions">
+      <thead>
+        <tr>
+          <th>Tipo</th>
+          <th>Valor</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of transactions">
+          <td>{{transaction.type}}</td>
+          <td>{{transaction.amount}}</td>
+          <td>{{transaction.date}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
