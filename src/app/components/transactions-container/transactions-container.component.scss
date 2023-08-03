@@ -1,9 +1,5 @@
-h2, h3, h4 {
+h2, h3, h4, h5 {
     padding-left: 1rem;
-}
-
-.table-container {
-    margin-bottom: 50px;  
 }
 
 .around-table {
@@ -11,19 +7,12 @@ h2, h3, h4 {
     padding-left: 0;
 }
 
-.wrap-table {
+.the-table {
     max-height: 300px;
     overflow-y: auto;
 }
 
-.chart-wrap {
-    height: 200px !important;
-    width: 200px !important;
+.load {
+    padding-left: 1rem;
 }
 
-.canva-content {
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-//   min-height: 100vh; 
-}

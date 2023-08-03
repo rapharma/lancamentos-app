@@ -8,10 +8,6 @@ import { TransactionRepository } from "../core/transaction.repository";
 export class FinanceService {
     constructor(@Inject(TransactionRepository) private repository: ITransactionRepository) { }
 
-    addTransaction(transaction: { type: string, amount: number, date: string }) {
-        this.repository.addTransaction(transaction);
-    }
-
     getTransactions() {
         return this.repository.getTransactions();
     }

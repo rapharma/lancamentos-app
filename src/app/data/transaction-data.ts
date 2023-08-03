@@ -1,7 +1,5 @@
 export const transactions_list: { type: string, amount: number, date: string }[] = [
     { type: 'credit', amount: 100, date: '2023-08-01' },
-    { type: 'debit', amount: 50, date: '2023-08-01' },
-    { type: 'debit', amount: 70, date: '2023-08-01' },
     { type: 'credit', amount: 200, date: '2023-08-03' },
     { type: 'credit', amount: 250, date: '2023-08-03' },
     { type: 'debit', amount: 30, date: '2023-08-03' },
