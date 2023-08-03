@@ -1,0 +1,20 @@
+<table *ngIf="transactions.length" class="table table-bordered rounded table-hover"
+    aria-describedby="transactions-table">
+    <thead class="bg-th">
+        <tr>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let transaction of transactions">
+            <td>{{transaction.type}}</td>
+            <td>{{transaction.amount | currency}}</td>
+            <td>{{transaction.date | date: 'dd/MM/yyyy'}}</td>
+            <td><button type="button" class="btn btn-outline-primary btn-sm btn-report"
+                    (click)="seeExpenses(transaction.date)">{{'See expenses'}}</button></td>
+        </tr>
+    </tbody>
+</table>
