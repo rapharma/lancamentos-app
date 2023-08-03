@@ -1,21 +1,63 @@
-<div class="container">
-  
-    <h3>{{transactions.length}} Transações</h3>
-    <table class="table" aria-describedby="transactions">
-      <thead>
-        <tr>
-          <th>Tipo</th>
-          <th>Valor</th>
-          <th>Data</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let transaction of transactions">
-          <td>{{transaction.type}}</td>
-          <td>{{transaction.amount}}</td>
-          <td>{{transaction.date}}</td>
-        </tr>
-      </tbody>
-    </table>
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Transaction Center</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Begin page content -->
+<main class="flex-shrink-0 table-container">
+  <div class="container-fluid pt-5 pl-2 around-table">
+    <h4 class="pt-3">Transactions</h4>
+    <div class="table-responsive wrap-table shadow-sm p-3 mb-2 bg-white rounded">
+      <table class="table table-bordered" aria-describedby="transactions-table">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Value</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of transactions">
+            <td>{{transaction.type}}</td>
+            <td>{{transaction.amount}}</td>
+            <td>{{transaction.date | date: 'dd/MM/yyyy'}}</td>
+            <td><button type="button" class="btn btn-primary btn-sm" (click)="seeReport(transaction.date)">{{'See report'}}</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="reportForDate">
+      <h4>Report on {{ reportForDate | date: 'dd/MM/yyyy' }}</h4>
+      <div class="canva-content" style="display: block">
+        <canvas baseChart
+                [data]="pieChartData"
+                [options]="pieChartOptions"
+                [type]="pieChartType"
+                class="chart-wrap">
+        </canvas>
+      </div>
+    </div>
+
   </div>
   
+</main>
+<footer class="py-3 fixed-bottom bg-light">
+  <div class="container">
+    <span class="text-muted">@Your life easier!</span>
+  </div>
+</footer>
